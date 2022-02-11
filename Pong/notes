@@ -1,0 +1,31 @@
+import java.awt.*;
+import java.awt.event.*;
+import java.util.*;
+import javax.swing.*;
+
+
+public class Ball extends Rectangle {
+	
+	Random random;
+	int xVelocity;
+	int yVelocity;
+	//finished the ball constructor, setup the parameters
+	Ball(int x, int y, int width, int height){
+		//since ball is a subclass of the rectangle superclass I can call these super constructors to assign these
+		//x,y,width,height are the ball diameters
+		super();
+		//set a random direction for the ball
+		//already have its own instance of random in our ball class
+		random = new Random();
+		int randomXDirection = random.nextInt(2);
+		if(randomXDirection == 0)
+			randomXDirection --;
+		//set the x direction by passing in randomdirection
+		setXDirection(randomXDirection);
+		//now I have to do the same thing with the Y direction copied above
+		int randomYDirection = random.nextInt(2);
+		if(randomYDirection == 0)
+			randomYDirection --;
+		//set the y direction by passing in randomdirection
+		setYDirection(randomYDirection);
+	

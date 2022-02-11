@@ -48,7 +48,8 @@ public class GamePanel extends JPanel implements Runnable {
 	}
 	
 	public void newBall() {
-		
+		random = new Random();
+		ball = new Ball((GAME_WIDTH/2)-(BALL_DIAMETER/2),random.nextInt((int) (GAME_HEIGHT-BALL_DIAMETER)),BALL_DIAMETER,BALL_DIAMETER);
 	}
 	public void newPaddles() {
 		paddle1 = new Paddle(0,(int) ((GAME_HEIGHT/2)-PADDLE_HEIGHT/2),PADDLE_WIDTH,PADDLE_HEIGHT,1);
@@ -64,9 +65,16 @@ public class GamePanel extends JPanel implements Runnable {
 	public void draw(Graphics g) {
 		paddle1.draw(g);
 		paddle2.draw(g);
+		//this actually draws the ball, call the draw method and pass in my graphic
+		ball.draw(g);
 	}
 	public void move() {
+		//these move methods makes the paddles and ball move more fluently
 		paddle1.move();
+		paddle2.move();
+		//made a comment for testing purposes havent made the ball yet
+		//can move ball now
+		ball.move();
 		
 	}
 	public void checkCollision() {
